@@ -13,7 +13,20 @@ string rtrim(const string &);
  */
 
 vector<int> gradingStudents(vector<int> grades) {
-
+    vector<int> ans;
+    for (int x : grades) {
+        if (x < 38) {
+            ans.push_back(x);
+        } else {
+            int next_multiple_of_five = ((x / 5) * 5) + 5;
+            if (next_multiple_of_five - x < 3) {
+                ans.push_back(next_multiple_of_five);
+            } else {
+                ans.push_back(x);
+            }
+        }
+    }
+    return ans;
 }
 
 int main()
